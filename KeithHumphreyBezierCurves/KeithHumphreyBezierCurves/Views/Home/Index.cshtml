@@ -1,0 +1,95 @@
+﻿@model KeithHumphreyBezierCurves.Models.BezierCurveModel
+@{
+    Layout = null;
+    ViewBag.Title = "Cubic Bézier curves";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <h2>@ViewBag.Title</h2>
+
+    <hr/>
+
+    @using (Html.BeginForm())
+    {
+        <div class="row">
+
+            <div class="col-xs-3 form-group has-error">
+                @Html.LabelFor(modelItem => Model.pointP1_X)
+                @Html.EditorFor(modelItem => Model.pointP1_X)
+                @Html.ValidationMessageFor(modelItem => Model.pointP1_X, null, new { @class = "help-block" })
+
+                @Html.LabelFor(modelItem => Model.pointP1_Y)
+                @Html.EditorFor(modelItem => Model.pointP1_Y)
+                @Html.ValidationMessageFor(modelItem => Model.pointP1_Y, null, new { @class = "help-block" })
+            </div>
+
+            <div class="col-xs-3 form-group has-error">
+                @Html.LabelFor(modelItem => Model.pointP2_X)
+                @Html.EditorFor(modelItem => Model.pointP2_X)
+                @Html.ValidationMessageFor(modelItem => Model.pointP2_X, null, new { @class = "help-block" })
+
+                @Html.LabelFor(modelItem => Model.pointP2_Y)
+                @Html.EditorFor(modelItem => Model.pointP2_Y)
+                @Html.ValidationMessageFor(modelItem => Model.pointP2_Y, null, new { @class = "help-block" })
+            </div>
+
+            <div class="col-xs-3 form-group has-error">
+                @Html.LabelFor(modelItem => Model.pointP3_X)
+                @Html.EditorFor(modelItem => Model.pointP3_X)
+                @Html.ValidationMessageFor(modelItem => Model.pointP3_X, null, new { @class = "help-block" })
+
+                @Html.LabelFor(modelItem => Model.pointP3_Y)
+                @Html.EditorFor(modelItem => Model.pointP3_Y)
+                @Html.ValidationMessageFor(modelItem => Model.pointP3_Y, null, new { @class = "help-block" })
+            </div>
+
+            <div class="col-xs-3 form-group has-error">
+                @Html.LabelFor(modelItem => Model.pointP4_X)
+                @Html.EditorFor(modelItem => Model.pointP4_X)
+                @Html.ValidationMessageFor(modelItem => Model.pointP4_X, null, new { @class = "help-block" })
+
+                @Html.LabelFor(modelItem => Model.pointP4_Y)
+                @Html.EditorFor(modelItem => Model.pointP4_Y)
+                @Html.ValidationMessageFor(modelItem => Model.pointP4_Y, null, new { @class = "help-block" })
+            </div>
+        </div>
+
+        <div class="col-xs-3 form-group has-error">
+            @Html.LabelFor(modelItem => Model.interval)
+            @Html.EditorFor(modelItem => Model.interval)
+            @Html.ValidationMessageFor(modelItem => Model.interval, null, new { @class = "help-block" })
+            <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+
+        if ( Model != null)
+        {
+            if (Model.result != null)
+            {
+                <div class="form-group">
+                    <div class="col-md-offset-0">
+                        @Html.TextArea("ResultsTextArea", Model.result, new { @class = "form-control", @rows = 20 });
+                    </div>
+                </div>
+            }
+        }
+
+    }
+    </div>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>
